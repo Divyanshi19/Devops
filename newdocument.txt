@@ -1,0 +1,42 @@
+public class FacebookSignUp {
+
+public ChromeDriver driver;
+@BeforeMethod
+public void Start(){
+
+System.setProperty("webdriver.chrome.driver", "//home//craterzone//chromedriver");
+driver=new ChromeDriver();
+driver.get("https://www.facebook.com/");
+}
+@AfterMethod
+public void Close(){
+driver.quit();
+}
+@Test
+public void FbLgSu() throws InterruptedException{
+//driver.findElementById("email").clear();
+driver.findElementById("email").sendKeys("divi@gmail.com");
+driver.findElementById("pass").sendKeys("divi");
+driver.findElementById("u_0_v").click();
+driver.findElementByXPath(".//*[@id='register_link']/strong/a").click();
+driver.findElementByXPath(".//*[@id='u_0_0']").sendKeys("Selenium");
+driver.findElementByXPath(".//*[@id='u_0_1']").sendKeys("WebDriver");
+driver.findElementByXPath(".//*[@id='u_0_2']").sendKeys("7065334443");
+driver.findElementByXPath(".//*[@id='u_0_4']").sendKeys("7065334443");
+driver.findElementByXPath(".//*[@id='u_0_5']").sendKeys("divyanshi");
+Select Days =new Select(driver.findElementById("day"));
+Days.selectByValue("2");
+Thread.sleep(1000);
+Select Month =new Select(driver.findElementById("month"));
+Month.selectByValue("1");
+Thread.sleep(1000);
+Select Year =new Select(driver.findElementById("year"));
+Year.selectByValue("1990");
+//driver.findElementByXPath(".//*[@id='u_0_b']/div[2]/a").click();
+driver.findElementByXPath(".//*[@id='u_0_6']").click();
+driver.findElementByXPath(".//*[@id='u_0_8']/p/a[1]").click();
+driver.findElementByXPath(".//*[@id='u_0_8']/p/a[2]").click();
+driver.findElementByXPath(".//*[@id='u_0_8']/p/a[3]").click();
+driver.findElementByXPath(".//*[@id='u_0_9']").click();
+
+}
